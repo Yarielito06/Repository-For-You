@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open Your Letter</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Time to open your Letter</h1>
+        <div class="envelope" onclick="openLetter()">
+            <div class="heart">❤️</div>
+        </div>
+    
+        <div class="message" id="message">
+            <p>My love, Can I be your Valentine???</p>
+            <img src="lovegif.gif" alt="Love GIF" class="love-gif">
+            <button onclick="closeLetter()">Close Letter</button>
+            <button onclick="goToAnswers()">Answer?</button>
+        </div>
+    
+        <div class="countdown" id="countdown">New letter in: 24h 00min 00s</div>
+    </div>    
+
+    <script>
+        function openLetter() {
+            let lastOpened = localStorage.getItem("lastOpened");
+            let firstOpen = localStorage.getItem("firstOpen");
+
+            if (firstOpen === null) {
+                localStorage.setItem("firstOpen", new Date());
+                startTimer();
+            }
+
+            document.getElementById("message").style.display = "block";
+            document.getElementById("countdown").style.display = "none";  // Hide countdown when opening letter
+            localStorage.setItem("lastMessage", document.getElementById("message").innerHTML);
+        }
+
+        function closeLetter() {
+            document.getElementById("message").style.display = "none";
+            document.getElementById("countdown").style.display = "block";  // Show countdown when closing letter
+        }
+
+        function goToAnswers() {
+            window.location.href = 'desktop5.html'; // Navigate to answers screen
+        }
+
+        function startTimer() {
+            let firstOpenTime = new Date(localStorage.getItem("firstOpen")).getTime();
+            let endTime = firstOpenTime + 24 * 60 * 60 * 1000; // 24 hours from first open time
+
+            let interval = setInterval(() => {
+                let now = new Date().getTime();
+                let timeLeft = endTime - now;
+
+                if (timeLeft <= 0) {
+                    clearInterval(interval);
+                    document.getElementById("countdown").innerHTML = "A new letter is ready!";
+                    document.getElementById("message").innerHTML = `<p>Here's a new message for you! 💖</p><img src="lovegif.gif" alt="Love GIF" class="love-gif"><button onclick='closeLetter()'>Close Letter</button>`;
+                    localStorage.removeItem("firstOpen");
+                } else {
+                    let hours = Math.floor(timeLeft / (1000 * 60 * 60));
+                    let minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                    let seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+                    document.getElementById("countdown").innerHTML = `New letter in: ${hours}h ${minutes}min ${seconds}s`;
+                }
+            }, 1000);
+        }
+
+        window.onload = function() {
+            if (localStorage.getItem("firstOpen") !== null) {
+                startTimer();
+            }
+        }
+    </script>
+</body>
+</html>

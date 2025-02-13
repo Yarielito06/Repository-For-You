@@ -1,0 +1,196 @@
+* {
+    font-family: "Press Start 2P", serif;
+}
+
+body {
+    background-color: #FFEFEF;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background: #FFDFDD;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    min-height: 300px;
+}
+
+h1 {
+    color: black;
+    font-size: 38px;
+}
+
+p {
+    color: #333;
+    font-size: 24px;
+    max-width: 80%;
+    margin: 0 auto;
+    line-height: 1.5;
+}
+
+.buttons {
+    margin-top: 40px;
+}
+
+button {
+    background: #ff6b81;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.secondary {
+    background: #ff6b81;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+.progress-bar {
+    width: 100%;
+    background-color: #ccc;
+    border-radius: 5px;
+    margin-top: 20px;
+    overflow: hidden;
+}
+
+.progress {
+    width: 0%;
+    height: 20px;
+    background-color: #ff6b81;
+    transition: width 3s linear;
+}
+
+.popup-message {
+    position: absolute;
+    background-color: #ff6666;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 14px;
+    animation: fadeInOut 4s forwards;
+    z-index: 10;
+}
+
+@keyframes fadeInOut {
+    0% { opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+
+
+
+
+#timer {
+    font-size: 22px;
+    color: #333;
+    margin-top: 10px;
+    background: white;
+    padding: 20px;
+    border: 4px solid #fe8294;
+    max-width: 40%;
+    margin: 0 auto;
+}
+
+.next-btn {
+    background: #ff6b81;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.next-btn:hover {
+    opacity: 0.8;
+}
+
+.envelope {
+    width: 120px;
+    height: 80px;
+    position: relative;
+    margin: 0 auto 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    border: 2px solid #d6336c;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.heart {
+    width: 20px;
+    height: 20px;
+    background-color: #ff6666;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+}
+
+.message {
+    display: none;
+    margin-top: 20px;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.love-gif {
+    width: 150px;
+    height: auto;
+    display: block;
+    margin: 10px auto;
+}
+
+.countdown {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #d6336c;
+}
+
+button {
+    background-color: #ff6666;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #ff4d4d;
+}
+
+.response {
+    margin-top: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+.happy-gif {
+    width: 100px;
+    height: auto;
+    display: block;
+    margin: 0 auto 10px;
+}
+

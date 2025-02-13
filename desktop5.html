@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desktop 5</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Will You Be My Valentine?</h1>
+        <div class="buttons">
+            <button id="yes-button" class="btn" onclick="yesClicked()">Yes</button>
+            <button id="no-button" class="btn" onclick="noClicked()">No :(</button>
+        </div>
+        <div id="response" class="response"></div>
+    </div>
+
+    <script>
+        let noButtonSize = 16;
+        let yesButtonSize = 16;
+
+        function noClicked() {
+            let noButton = document.getElementById("no-button");
+            let yesButton = document.getElementById("yes-button");
+            noButtonSize *= 0.9; // Make the "No" button smaller
+            yesButtonSize *= 1.1; // Make the "Yes" button bigger
+            noButton.style.fontSize = `${noButtonSize}px`;
+            yesButton.style.fontSize = `${yesButtonSize}px`;
+        }
+
+        function yesClicked() {
+            let responseDiv = document.getElementById("response");
+            responseDiv.innerHTML = `<img src="happygif.gif" alt="Happy GIF" class="happy-gif"><p>Yessssss</p><button class="btn" onclick="goToStart()">Go to the Start</button>`;
+            document.getElementById("yes-button").style.display = "none";
+            document.getElementById("no-button").style.display = "none";
+        }
+
+        function goToStart() {
+            window.location.href = 'desktop.html'; // Navigate to the start page
+        }
+    </script>
+</body>
+</html>
